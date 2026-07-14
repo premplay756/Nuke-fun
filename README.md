@@ -49,7 +49,7 @@ Open Command Prompt/Terminal and type:
 ### This Command is only for Linux Users:
 
 ```
-git clone https://github.com/more-dark/Blade-Nuker
+git clone https://github.com/T-D-Organization/Blade-Nuker.git
 cd Blade-Nuker
 ```
 ```
@@ -65,7 +65,7 @@ python3 main.py
 ### This Command is only for Windows Users:
 
 ```
-git clone https://github.com/more-dark/Blade-Nuker
+git clone https://github.com/T-D-Organization/Blade-Nuker.git
 cd Blade-Nuker
 ```
 ```
@@ -102,7 +102,7 @@ See LICENSE file for full terms.
 
 For BLADE support:
 • Read this README fully first
-• Join [https://discord.gg/bUPqSj8VzR](https://discord.gg/bUPqSj8VzR) for any issue
+• Join [https://discord.gg/bUPqSj8VzR](https://discord.gg/SzWt6yhMm5) for any issue
 • Contact tool author directly (𝐍𝐄𝐗𝐔𝐒 & 𝐗𝐘𝐓𝐇𝐄𝐑)
 # IMPORTANT NOTICE
 
