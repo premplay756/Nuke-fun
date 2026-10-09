@@ -988,7 +988,8 @@ def start(args):
         print(f"\n{Colorate.Vertical(Colors.DynamicMIX((Col.light_red, Col.red)), '╔══════════════════════════════════════════════════════════════╗')}")
         print(f"{Colorate.Vertical(Colors.DynamicMIX((Col.light_red, Col.red)), '║                    🔑 BOT TOKEN REQUIRED 🔑                  ║')}")
         print(f"{Colorate.Vertical(Colors.DynamicMIX((Col.light_red, Col.red)), '╚══════════════════════════════════════════════════════════════╝')}")
-        token = Funcs.get_input(f"\n{Fore.RED}➤{Fore.CYAN} Enter Bot Token{Fore.YELLOW} » {Fore.WHITE}", lambda x: x != "" and not x.isnumeric() and Tools.check_token(x))
+        token = Funcs.get_input(f"\n{Fore.RED}➤{Fore.CYAN} Enter Bot Token{Fore.YELLOW} » {Fore.WHITE}", lambda x: x != "" and not x.isnumeric() and True)
+        
     else:
         if not Tools.check_token(token):
             print(f"\n{Colorate.Vertical(Colors.DynamicMIX((Col.light_red, Col.red)), '╔══════════════════════════════════════════════════════════════╗')}")
