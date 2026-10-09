@@ -1,23 +1,47 @@
 import os
 import sys
-import time
+import asyncio
 from colorama import Fore, init
-from render_server import keep_alive
 
-keep_alive()
+# Initialize color mapping metrics
 init(autoreset=True)
 
+print(f"{Fore.CYAN}[*] Railway Production Environment successfully initialized...")
+
+# 1. Pull your token silently from Railway's internal cloud variables
 token = os.getenv("DISCORD_BOT_TOKEN")
+prefix = os.getenv("BOT_PREFIX", "!")
+
 if not token or token.strip() == "":
-    print(f"{Fore.RED}[!] Deployment halted: Missing 'DISCORD_BOT_TOKEN' in Render Environment.")
+    print(f"{Fore.RED}[!] Deployment halted: Missing 'DISCORD_BOT_TOKEN' in Railway variables tab.")
     sys.exit(1)
 
-prefix = os.getenv("BOT_PREFIX", "!")
-print(f"{Fore.GREEN}[+] Environment Verified. Initializing internal Discord client structures...")
+# =========================================================
+# ⚠️ YOUR ORIGINAL BOT LOGIN LOGIC / COMMANDS GO HERE ⚠️
+# =========================================================
+# Standard gateway integration layer via discord.py framework:
+import discord
+from discord.ext import commands
 
-print("[+] System modules operational. Entering main runtime holding loop...")
-try:
-    while True:
-        time.sleep(3600)
-except (KeyboardInterrupt, SystemExit):
-    print("[-] Shutting down framework execution modules cleanly.")
+intents = discord.Intents.default()
+intents.message_content = True  # Allows bot to read trigger words
+intents.members = True          # Required for utility actions
+
+bot = commands.Bot(command_prefix=prefix, intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f"{Fore.GREEN}[+] Connected to Discord Gateway as: {bot.user}")
+
+# =========================================================
+# RAILWAY RUN ENGINE
+# =========================================================
+async def main():
+    try:
+        # Railway handles keeping this execution frame alive forever natively
+        await bot.start(token)
+    except Exception as e:
+        print(f"{Fore.RED}[!] Gateway Connection Error: {e}")
+
+if __name__ == "__main__":
+    asyncio.run(main())
