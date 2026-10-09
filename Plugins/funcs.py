@@ -10,8 +10,10 @@ class Funcs:
                 return token.strip()
             print("[!] Critical Deployment Failure: 'DISCORD_BOT_TOKEN' environment variable is empty.")
             sys.exit(1)
+            
         if "Prefix" in prompt_text:
             return os.getenv("BOT_PREFIX", "!")
+            
         return "CLOUD_ENVIRONMENT_AUTOPASS"
 
     @staticmethod
